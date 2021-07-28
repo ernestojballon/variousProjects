@@ -1,0 +1,36 @@
+<!-- validation of an input element -->
+<html>
+    <head>
+        <title>Validation of an input:</title>
+    </head>
+    <body>
+        <form>
+            <div class="groupForm">
+                <label for="name">Insert name:</label>
+                <input id="name" name="name" type="text" required>
+            </div>
+            <br/>
+            <div class="controlForm">
+                <button class="submitButton" >Submit</button>
+                <label class="message"></label>
+            </div>
+        </form>
+        <script>
+            let button = document.querySelector(".submitButton")
+            let messageCount = 1
+            button.addEventListener("click",submit)
+            function submit(e){
+                e.preventDefault()
+                let name = document.querySelector("#name").value
+                var regex=/^[0-9]+$/;
+                if (!name){
+                    document.querySelector(".message").textContent = "Is empty i can't do nothing!" 
+                }else if (!name.match(regex)){
+                    document.querySelector(".message").textContent = "This is not a number!" 
+                }
+            }
+        </script>
+    </body>
+    <style>
+    </style>
+</html>

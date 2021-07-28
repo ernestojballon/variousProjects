@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title> this is an excersice</title>
+    </head>
+    <body>  
+        <p class="title">This is the bar container:</p>
+
+        <div class="progressContainer">
+            <div class="progressBar">
+            </div>
+        </div>
+        <button class="startButton">Start</button>
+        <script>
+            document.querySelector(".startButton",).addEventListener("click",(e)=>{
+                let progressBar = document.querySelector(".progressBar")
+                let button = e.target
+                button.disabled= true
+                let interval = setInterval(()=>{
+                    let progress = +progressBar.style.width.slice(0,-2)
+                    progress = progress + 20
+                    progressBar.style.width = progress
+                    console.log(progressBar.style.width)
+                    if(progress >= 200){
+                        clearInterval(interval)
+                        button.disabled= false
+                        progressBar.style.width = 0
+                    }
+                },1000)
+                interval()
+            })
+        </script>
+    </body>
+    <style>
+        .startButton{
+            margin: 20px 0 0 40px;
+        }
+        .progressBar{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 40px;
+            width: 0px;
+            background-color:green;
+        }
+        .progressContainer{
+            position: relative;
+            height: 40px;
+            width: 200px;
+            border : 1px solid black;
+            overflow: hidden;
+        }
+
+        .title{
+            font-size: 25px;
+        }
+    </style>
+
+</html>

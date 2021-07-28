@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>tab bar</title>
+        <link rel="stylesheet" href="tabs.css" />
+    </head>
+    <body>
+        <div class="container" >
+            <div class="labelsContainer">
+                <div class="pageLink"><button class="active">Page1</button></div>
+                <div class="pageLink"><button >Page2</button></div>
+                <div class="pageLink"><button >Page3</button></div>
+            </div>
+        </div>
+        <div class="tabsContainer">
+            <div id="page1" class="page active">This is the content for the first page</div>
+            <div id="page2" class="page">this is the content fro the second page</div>
+            <div id="page3" class="page">this is just the third page</div>
+        </div>
+        <script>
+            let arr = ['page1','page2','page3']
+            let arr2 = document.querySelectorAll('.pageLink')
+                            .forEach(ele=> ele.addEventListener('click',(e)=>switchTo(e)))       
+            
+            function switchTo(e){
+                //remove active to all labels
+                let labels = document.querySelectorAll('.pageLink')
+                                    .forEach(ele =>{
+                                        ele.firstChild.classList.remove('active')
+                                    } )
+                //Add class active to target
+                let button = e.target.classList.add('active')
+                
+                //Get page
+                let page = e.target.childNodes[0].data
+                let arrFilter = arr.filter(item=>{
+                        return item != page
+                    })
+                
+                arrFilter.map(item=>{
+                    let pag = document.querySelector(`#${item}`)
+                    pag.classList.remove("active")
+                })
+                let pag = document.querySelector(`#${page}`)
+                    pag.classList.add("active")
+            }
+        </script>
+    </body>
+</hmtl>

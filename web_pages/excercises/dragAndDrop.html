@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>thi is gonna be a drag and drop</title>
+    </head>
+    <body>
+        <div class="dragContainer">
+            <div class="dragItem" draggable="true">1</div>
+            <div class="dragItem" draggable="true">2</div>
+            <div class="dragItem" draggable="true">3</div>
+            <div class="dragItem" draggable="true">4</div>
+            <div class="dragItem" draggable="true">5</div>
+            <div class="dragItem" draggable="true">6</div>
+            <div class="dragItem" draggable="true">7</div>
+            <div class="dragItem" draggable="true">8</div>
+            <div class="dragItem" draggable="true">9</div>
+            <div class="dragItem" draggable="true">10</div>
+            <div class="dragItem" draggable="true">11</div>
+            <div class="dragItem" draggable="true">12</div>
+
+        </div>
+        <script>
+            let dragged ;
+            document.addEventListener("drag", function( event ) {
+
+            }, false);
+
+            document.addEventListener("dragstart", function( event ) {
+                // store a ref. on the dragged elem
+                dragged = event.target;
+                // make it half transparent
+                event.target.style.opacity = .5;
+            }, false);
+            document.addEventListener("dragend", function(event) {
+                // reset the transparency
+                event.target.style.opacity = "";
+            }, false);
+
+        </script>
+    </body>
+    <style>
+        .dragItem{
+            margin: 1px 1px 1px 1px;
+            width: 40px;
+            height: 40px;
+            background-color:red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .dragContainer{
+            margin: 20px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            width: 400px;
+            height: auto;
+        }
+    </style>
+</html>

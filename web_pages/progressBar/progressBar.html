@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>test</title>
+        <link rel = "stylesheet" href="./progressBar.css"/>
+    </head>
+    <body>
+        <div>
+            <h1>This is a progress bar:</h1>
+        </div>
+        <div class="container">
+            <div class="progressBar">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div class="startContainer">
+            <button class="start" onclick='fillbar("seconds")' >Start</button>
+        </div>
+        <script>
+            
+            function fillbar(){
+                console.log("fill the bar")
+                const button = document.querySelector(".start")
+                
+                const progress = document.querySelector('.progress')
+                let percent = 0
+                const interval = setInterval(()=>{
+                    if (percent >=100){
+                        progress.style.width = "0%"
+                        percent = 0
+                        clearInterval(interval)
+                        button.disabled = false
+                        
+                    }else{
+                        button.disabled = true
+                        percent++;
+                        progress.style.width = percent + "%"
+                    }
+                    
+                },10)
+                
+                
+            
+            }
+            
+            
+        </script>
+    </body>
+</html>

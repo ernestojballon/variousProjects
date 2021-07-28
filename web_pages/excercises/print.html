@@ -1,0 +1,66 @@
+<!-- print element clicked in a text box -->
+
+<html>
+    <head>
+        <title>First element clicked printed</title>
+        <link rel="stylesheet" href=""/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="elemetsContainer">
+                <div class="element">
+                    <input type="text" value="hola">
+                </div>
+                <div class="element">
+                    <textarea cols="20" rows="2"> hola text area</textarea>
+                </div>
+                <div class="element">
+                    <button>this is a button</button>
+                </div>
+                <div class="element">
+                    <label > this is a label</label>
+                </div>
+                <div class="element">
+                    <input type="checkbox" name="gender" value="male"> check
+
+                </div>
+                <div class="element">
+                    <input type="radio" name="gender" value="male"> radio
+
+                </div>
+            </div>
+            <div class="controlContainer">
+            </div>
+        </div>
+        <script>
+            let elemets = document.querySelectorAll(".element")
+            elemets.forEach((element)=>{
+                element.addEventListener("click",(event)=>{
+                    let el =document.querySelector(".controlContainer")
+                    if (el.hasChildNodes()) {
+                        el.childNodes.forEach(child => el.removeChild(child));
+                    }
+                    document.querySelector(".controlContainer").append(element.cloneNode(true))
+                })
+            })
+        </script>
+    </body>
+    <style>
+        .elementsContainer{
+            width: 600px;
+            height: 200px;
+            display:flex;
+            flex: wrap;
+        }
+        .element{
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+        }
+        .controlContainer{
+            background-color:red;
+            width:200px;
+            height: 100px;
+        }
+    </style>
+</html>

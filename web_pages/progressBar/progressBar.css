@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(250,250,250);
+}
+.progressBar{
+    border : solid rgb(20,20,20) 1px;
+    border-radius:5px;
+    height: 40px;
+    width: 200px;
+    overflow: hidden;
+}
+.progress{
+    height: 40px;
+    width: 0px;
+    background-color:green;
+}
+.startContainer{
+    margin: 10px 0px;
+}
+.startContainer > button{
+    width: 200px;
+}
